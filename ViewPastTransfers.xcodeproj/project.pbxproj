@@ -14,6 +14,7 @@
 		17B0E13A299A9525009D8254 /* ViewPastTransfersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E139299A9525009D8254 /* ViewPastTransfersTests.swift */; };
 		17B0E144299A9525009D8254 /* ViewPastTransfersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E143299A9525009D8254 /* ViewPastTransfersUITests.swift */; };
 		17B0E146299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E145299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift */; };
+		17B0E153299AA481009D8254 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E152299AA481009D8254 /* TransactionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		17B0E13F299A9525009D8254 /* ViewPastTransfersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViewPastTransfersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B0E143299A9525009D8254 /* ViewPastTransfersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPastTransfersUITests.swift; sourceTree = "<group>"; };
 		17B0E145299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPastTransfersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		17B0E152299AA481009D8254 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				17B0E12B299A9525009D8254 /* Assets.xcassets */,
 				17B0E12D299A9525009D8254 /* LaunchScreen.storyboard */,
 				17B0E130299A9525009D8254 /* Info.plist */,
+				17B0E152299AA481009D8254 /* TransactionCell.swift */,
 			);
 			path = ViewPastTransfers;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			files = (
 				17B0E127299A9522009D8254 /* ViewController.swift in Sources */,
 				17B0E123299A9522009D8254 /* AppDelegate.swift in Sources */,
+				17B0E153299AA481009D8254 /* TransactionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
