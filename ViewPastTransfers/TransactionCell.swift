@@ -11,6 +11,10 @@ import UIKit
 
 class TransactionCell: UITableViewCell
 {
+    enum TransactionType {
+        case credit, debit
+    }
+    
     var transactionDate = UILabel()
     var stackView1 = UIStackView()
     var repeatImage = UIImageView()
@@ -18,6 +22,17 @@ class TransactionCell: UITableViewCell
     var stackView2 = UIStackView()
     var amountLabel = UILabel()
     var recipientName = UILabel()
+    
+    var transactionType: TransactionType! {
+        didSet {
+            if transactionType == .credit {
+                amountLabel.textColor = .blue
+            }
+            else {
+                amountLabel.textColor = .red
+            }
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,9 +58,9 @@ class TransactionCell: UITableViewCell
         stackView2.axis = .vertical
         stackView2.spacing = 5
         
-        amountLabel.textColor = .red
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
         
         recipientName.textColor = .gray
         recipientName.translatesAutoresizingMaskIntoConstraints = false

@@ -8,36 +8,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    lazy private var searchView: UIView = {
-        let view = UIView()
+    
+    lazy private var searchView: UISearchBar = {
+        let view = UISearchBar()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
+        view.clipsToBounds = true
         return view
-    }()
-    
-    lazy private var searchImageView:UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFit // image will never be strecthed vertially or horizontally
-        img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
-        img.image = UIImage(systemName: "magnifyingglass")
-        img.tintColor = .black
-        
-        return img
-    }()
-    
-    lazy private var searchInputTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Search transfers"
-        return textField
     }()
     
     private let tableView = UITableView(frame: CGRect(), style: .plain)
     
-//    private var filteredArray = [Beneficiary]()
+    //    private var filteredArray = [Beneficiary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,27 +29,21 @@ class ViewController: UIViewController {
         
         view.backgroundColor = UIColor(red: 234/255, green: 235/255, blue: 237/255, alpha: 1)
         
-        searchInputTextField.delegate = self
+        searchView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TransactionCell.self, forCellReuseIdentifier: "cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = UIColor(red: 234/255, green: 235/255, blue: 237/255, alpha: 1)
-       
-
+        
+        
         view.addSubview(searchView)
-        view.addSubview(searchImageView)
-        view.addSubview(searchInputTextField)
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
             searchView.topAnchor.constraint(equalTo:view.topAnchor, constant: 160),
             searchView.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 10),
             view.trailingAnchor.constraint(equalTo:searchView.trailingAnchor, constant: 10),
-            searchInputTextField.centerYAnchor.constraint(equalTo: searchView.centerYAnchor),
-            searchInputTextField.leadingAnchor.constraint(equalTo: searchView.leadingAnchor, constant: 10),
-            searchView.trailingAnchor.constraint(equalTo: searchImageView.trailingAnchor, constant: 10),
-            searchImageView.centerYAnchor.constraint(equalTo: searchView.centerYAnchor),
             tableView.topAnchor.constraint(equalToSystemSpacingBelow: searchView.bottomAnchor, multiplier: 2),
             tableView.leftAnchor.constraint(equalTo:view.leftAnchor, constant: 10),
             tableView.rightAnchor.constraint(equalTo:view.rightAnchor, constant: -10),
@@ -73,15 +51,15 @@ class ViewController: UIViewController {
         ])
         
     }
-
     
-
+    
+    
 }
 
-extension ViewController: UITextFieldDelegate {
+extension ViewController: UISearchBarDelegate {
     
-    func textFieldDidChangeSelection(_ textField: UITextField) {
-        print(searchInputTextField.text)
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
     }
     
 }
@@ -96,6 +74,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.transactionDate.text = "06 FEB 23"
         cell.amountLabel.text = "-₹ 30, 000.00"
         cell.recipientName.text = "Rahul Sharma"
+        cell.transactionType = .credit
         cell.backgroundColor = UIColor(red: 234/255, green: 235/255, blue: 237/255, alpha: 1)
         return cell
     }
