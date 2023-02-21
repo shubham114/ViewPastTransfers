@@ -1,9 +1,4 @@
-//
-//  ViewPastTransfersTests.swift
-//  ViewPastTransfersTests
-//
-//  Created by Chandan on 13/02/23.
-//
+
 
 import XCTest
 @testable import ViewPastTransfers

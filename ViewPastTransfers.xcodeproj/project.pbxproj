@@ -15,6 +15,11 @@
 		17B0E144299A9525009D8254 /* ViewPastTransfersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E143299A9525009D8254 /* ViewPastTransfersUITests.swift */; };
 		17B0E146299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E145299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift */; };
 		17B0E153299AA481009D8254 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B0E152299AA481009D8254 /* TransactionCell.swift */; };
+		8215B6FF299D4FDE00B76130 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */; };
+		8215B700299D4FDE00B76130 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */; };
+		8215B701299D4FDE00B76130 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */; };
+		825AB03B29A4057D005D158E /* RepeatTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AB03A29A4057D005D158E /* RepeatTappedViewController.swift */; };
+		825AB03D29A40781005D158E /* PopOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AB03C29A40781005D158E /* PopOverTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,9 @@
 		17B0E143299A9525009D8254 /* ViewPastTransfersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPastTransfersUITests.swift; sourceTree = "<group>"; };
 		17B0E145299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPastTransfersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		17B0E152299AA481009D8254 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountDetailsView.swift; path = "../../Practice Project/ViewPastTransfer/ViewPastTransfer/View/AccountDetailsView.swift"; sourceTree = "<group>"; };
+		825AB03A29A4057D005D158E /* RepeatTappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatTappedViewController.swift; sourceTree = "<group>"; };
+		825AB03C29A40781005D158E /* PopOverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +107,13 @@
 			children = (
 				17B0E122299A9522009D8254 /* AppDelegate.swift */,
 				17B0E126299A9522009D8254 /* ViewController.swift */,
+				8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */,
 				17B0E12B299A9525009D8254 /* Assets.xcassets */,
 				17B0E12D299A9525009D8254 /* LaunchScreen.storyboard */,
 				17B0E130299A9525009D8254 /* Info.plist */,
 				17B0E152299AA481009D8254 /* TransactionCell.swift */,
+				825AB03A29A4057D005D158E /* RepeatTappedViewController.swift */,
+				825AB03C29A40781005D158E /* PopOverTableViewController.swift */,
 			);
 			path = ViewPastTransfers;
 			sourceTree = "<group>";
@@ -254,7 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825AB03B29A4057D005D158E /* RepeatTappedViewController.swift in Sources */,
 				17B0E127299A9522009D8254 /* ViewController.swift in Sources */,
+				825AB03D29A40781005D158E /* PopOverTableViewController.swift in Sources */,
+				8215B6FF299D4FDE00B76130 /* AccountDetailsView.swift in Sources */,
 				17B0E123299A9522009D8254 /* AppDelegate.swift in Sources */,
 				17B0E153299AA481009D8254 /* TransactionCell.swift in Sources */,
 			);
@@ -265,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17B0E13A299A9525009D8254 /* ViewPastTransfersTests.swift in Sources */,
+				8215B700299D4FDE00B76130 /* AccountDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +289,7 @@
 			files = (
 				17B0E146299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift in Sources */,
 				17B0E144299A9525009D8254 /* ViewPastTransfersUITests.swift in Sources */,
+				8215B701299D4FDE00B76130 /* AccountDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

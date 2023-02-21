@@ -1,9 +1,3 @@
-//
-//  TransactionCell.swift
-//  ViewPastTransfers
-//
-//  Created by Chandan on 13/02/23.
-//
 
 import Foundation
 
@@ -17,7 +11,8 @@ class TransactionCell: UITableViewCell
     
     var transactionDate = UILabel()
     var stackView1 = UIStackView()
-    var repeatImage = UIImageView()
+    var reapeatBtn = UIButton(type: .custom)
+    //var repeatImage = UIImageView()
     var repeatImageLabel = UILabel()
     var stackView2 = UIStackView()
     var amountLabel = UILabel()
@@ -46,10 +41,9 @@ class TransactionCell: UITableViewCell
         stackView1.axis = .vertical
         stackView1.spacing = 5
         
-        repeatImage.image = UIImage(systemName: "repeat")
-        repeatImage.tintColor = .red
-        repeatImage.contentMode = .scaleAspectFit
-        
+        reapeatBtn.translatesAutoresizingMaskIntoConstraints = false
+        reapeatBtn.setImage(UIImage(systemName: "repeat"), for: .normal)
+        reapeatBtn.tintColor = .red
         repeatImageLabel.textColor = .red
         repeatImageLabel.text = "Repeat"
         repeatImageLabel.font = UIFont.systemFont(ofSize: 10)
@@ -67,7 +61,7 @@ class TransactionCell: UITableViewCell
         recipientName.font = UIFont.systemFont(ofSize: 14)
         
         contentView.addSubview(transactionDate)
-        stackView1.addArrangedSubview(repeatImage)
+        stackView1.addArrangedSubview(reapeatBtn)
         stackView1.addArrangedSubview(repeatImageLabel)
         contentView.addSubview(stackView1)
         stackView2.addArrangedSubview(amountLabel)
@@ -83,6 +77,8 @@ class TransactionCell: UITableViewCell
             stackView2.leadingAnchor.constraint(equalToSystemSpacingAfter: transactionDate.trailingAnchor, multiplier: 4)
         ])
     }
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

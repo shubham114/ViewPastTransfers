@@ -1,9 +1,3 @@
-//
-//  ViewPastTransfersUITestsLaunchTests.swift
-//  ViewPastTransfersUITests
-//
-//  Created by Chandan on 13/02/23.
-//
 
 import XCTest
 
