@@ -5,29 +5,17 @@ import UIKit
 
 class TransactionCell: UITableViewCell
 {
-    enum TransactionType {
-        case credit, debit
-    }
     
     var transactionDate = UILabel()
     var stackView1 = UIStackView()
-    var reapeatBtn = UIButton(type: .custom)
+    var repeatBtn = UIButton(type: .custom)
     //var repeatImage = UIImageView()
     var repeatImageLabel = UILabel()
     var stackView2 = UIStackView()
     var amountLabel = UILabel()
     var recipientName = UILabel()
     
-    var transactionType: TransactionType! {
-        didSet {
-            if transactionType == .credit {
-                amountLabel.textColor = .blue
-            }
-            else {
-                amountLabel.textColor = .red
-            }
-        }
-    }
+    var transactionType = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -41,9 +29,9 @@ class TransactionCell: UITableViewCell
         stackView1.axis = .vertical
         stackView1.spacing = 5
         
-        reapeatBtn.translatesAutoresizingMaskIntoConstraints = false
-        reapeatBtn.setImage(UIImage(systemName: "repeat"), for: .normal)
-        reapeatBtn.tintColor = .red
+        repeatBtn.translatesAutoresizingMaskIntoConstraints = false
+        repeatBtn.setImage(UIImage(systemName: "repeat"), for: .normal)
+        repeatBtn.tintColor = .red
         repeatImageLabel.textColor = .red
         repeatImageLabel.text = "Repeat"
         repeatImageLabel.font = UIFont.systemFont(ofSize: 10)
@@ -61,7 +49,7 @@ class TransactionCell: UITableViewCell
         recipientName.font = UIFont.systemFont(ofSize: 14)
         
         contentView.addSubview(transactionDate)
-        stackView1.addArrangedSubview(reapeatBtn)
+        stackView1.addArrangedSubview(repeatBtn)
         stackView1.addArrangedSubview(repeatImageLabel)
         contentView.addSubview(stackView1)
         stackView2.addArrangedSubview(amountLabel)

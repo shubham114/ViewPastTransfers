@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     
     private let tableView = UITableView(frame: CGRect(), style: .plain)
     
+    var data = FetchApi().loadJson()
+    
     //    private var filteredArray = [Beneficiary]()
     
     override func viewDidLoad() {
@@ -71,16 +73,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionCell
-        cell.transactionDate.text = "06 FEB 23"
-        cell.amountLabel.text = "-₹ 30, 000.00"
-        cell.recipientName.text = "Rahul Sharma"
-        cell.transactionType = .debit
-        cell.reapeatBtn.addTarget(self, action: #selector(reapeatBtnTapped(_:)), for: .touchUpInside)
+        cell.transactionDate.text = data?[indexPath.row].transactionDate
+        cell.recipientName.text = data?[indexPath.row].reciepientName
+        if data?[indexPath.row].type == "Credit" {
+            cell.transactionType.text = data?[indexPath.row].type
+            cell.amountLabel.text = "₹\(data![indexPath.row].amount)"
+            cell.amountLabel.textColor = .blue
+        }
+        else {
+            cell.transactionType.text = data?[indexPath.row].type
+            cell.amountLabel.text = "-₹\(data![indexPath.row].amount)"
+            cell.amountLabel.textColor = .red
+        }
+        cell.selectionStyle = .none
+        cell.repeatBtn.addTarget(self, action: #selector(repeatBtnTapped(_:)), for: .touchUpInside)
+        cell.repeatBtn.tag = indexPath.row
         cell.backgroundColor = UIColor(red: 234/255, green: 235/255, blue: 237/255, alpha: 1)
         return cell
     }
@@ -94,13 +106,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension ViewController {
     
-    @objc func reapeatBtnTapped(_ sender: UIButton) {
+    @objc func repeatBtnTapped(_ sender: UIButton) {
 //        //sender.isSelected.toggle()
 //        let vc = RepeatTappedViewController()
 //        navigationController?.pushViewController(vc, animated: true)
 //        navigationItem.backButtonTitle = ""
 //        navigationController?.navigationBar.tintColor = .white
-        print("Button tapped")
+        print("Button tapped \(sender.tag)")
     }
     
     
@@ -111,6 +123,7 @@ extension ViewController {
         accountDetailsView.typeBtn.addTarget(self, action: #selector(typeBtnTapped(_:)), for: .touchUpInside)
         
         accountDetailsView.periodBtn.addTarget(self, action: #selector(periodBtnTapped(_ :)), for: .touchUpInside)
+        accountDetailsView.bankSltBtn.addTarget(self, action: #selector(bankSltBtnTapped(_:)), for: .touchUpInside)
     }
     func layout()
     {
@@ -205,6 +218,10 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
         return .none
     }
     
+    
+    @objc func bankSltBtnTapped(_ sender: UIButton) {
+        showPopover(sender, dataArray: accountDetailsView.selectAccArr, label: accountDetailsView.sltAccTextLabel)
+    }
     
     @objc func typeBtnTapped(_ sender: UIButton) {
         showPopover(sender, dataArray: accountDetailsView.typeTextArr, label: accountDetailsView.typeTextLabel)

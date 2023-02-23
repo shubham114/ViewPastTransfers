@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "reciepient_name": "Shubham Sharma",
+        "amount": "5,000",
+        "transaction_date": "06 Feb 23",
+        "type": "Credit"
+    },
+    {
+        "id": 2,
+        "reciepient_name": "Chandan Hayaran",
+        "amount": "10,000",
+        "transaction_date": "07 Feb 23",
+        "type": "Debit"
+    }
+]

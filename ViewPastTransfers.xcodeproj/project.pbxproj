@@ -18,8 +18,11 @@
 		8215B6FF299D4FDE00B76130 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */; };
 		8215B700299D4FDE00B76130 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */; };
 		8215B701299D4FDE00B76130 /* AccountDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */; };
+		8256B88129A632DE00C938A6 /* TransferListData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8256B88029A632DE00C938A6 /* TransferListData.json */; };
+		8256B88429A6333300C938A6 /* TransferListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8256B88329A6333300C938A6 /* TransferListModel.swift */; };
 		825AB03B29A4057D005D158E /* RepeatTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AB03A29A4057D005D158E /* RepeatTappedViewController.swift */; };
 		825AB03D29A40781005D158E /* PopOverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825AB03C29A40781005D158E /* PopOverTableViewController.swift */; };
+		82895D4A29A78BF900F8AFE6 /* FetchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82895D4929A78BF900F8AFE6 /* FetchApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +56,11 @@
 		17B0E145299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPastTransfersUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		17B0E152299AA481009D8254 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountDetailsView.swift; path = "../../Practice Project/ViewPastTransfer/ViewPastTransfer/View/AccountDetailsView.swift"; sourceTree = "<group>"; };
+		8256B88029A632DE00C938A6 /* TransferListData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TransferListData.json; sourceTree = "<group>"; };
+		8256B88329A6333300C938A6 /* TransferListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferListModel.swift; sourceTree = "<group>"; };
 		825AB03A29A4057D005D158E /* RepeatTappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatTappedViewController.swift; sourceTree = "<group>"; };
 		825AB03C29A40781005D158E /* PopOverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverTableViewController.swift; sourceTree = "<group>"; };
+		82895D4929A78BF900F8AFE6 /* FetchApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 		17B0E121299A9522009D8254 /* ViewPastTransfers */ = {
 			isa = PBXGroup;
 			children = (
+				8256B88229A6330700C938A6 /* Model */,
+				8256B87F29A6327F00C938A6 /* Resources */,
 				17B0E122299A9522009D8254 /* AppDelegate.swift */,
 				17B0E126299A9522009D8254 /* ViewController.swift */,
 				8215B6FE299D4FDE00B76130 /* AccountDetailsView.swift */,
@@ -133,6 +141,23 @@
 				17B0E145299A9525009D8254 /* ViewPastTransfersUITestsLaunchTests.swift */,
 			);
 			path = ViewPastTransfersUITests;
+			sourceTree = "<group>";
+		};
+		8256B87F29A6327F00C938A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8256B88029A632DE00C938A6 /* TransferListData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8256B88229A6330700C938A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8256B88329A6333300C938A6 /* TransferListModel.swift */,
+				82895D4929A78BF900F8AFE6 /* FetchApi.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +264,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8256B88129A632DE00C938A6 /* TransferListData.json in Resources */,
 				17B0E12F299A9525009D8254 /* LaunchScreen.storyboard in Resources */,
 				17B0E12C299A9525009D8254 /* Assets.xcassets in Resources */,
 			);
@@ -270,6 +296,8 @@
 				825AB03D29A40781005D158E /* PopOverTableViewController.swift in Sources */,
 				8215B6FF299D4FDE00B76130 /* AccountDetailsView.swift in Sources */,
 				17B0E123299A9522009D8254 /* AppDelegate.swift in Sources */,
+				82895D4A29A78BF900F8AFE6 /* FetchApi.swift in Sources */,
+				8256B88429A6333300C938A6 /* TransferListModel.swift in Sources */,
 				17B0E153299AA481009D8254 /* TransactionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
