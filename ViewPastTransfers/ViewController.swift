@@ -4,7 +4,7 @@ class ViewController: UIViewController {
     
     var accountDetailsView = AccountDetailsView()
     
-    var transactionCell = TransactionCell()
+   // var transactionCell = TransactionCell()
     
     lazy var stackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [accountDetailsView])
@@ -78,16 +78,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionCell
+        
         cell.transactionDate.text = data?[indexPath.row].transactionDate
         cell.recipientName.text = data?[indexPath.row].reciepientName
+        
         if data?[indexPath.row].type == "Credit" {
             cell.transactionType.text = data?[indexPath.row].type
-            cell.amountLabel.text = "₹\(data![indexPath.row].amount)"
+            cell.amountLabel.text = positiveRupee + data![indexPath.row].amount
             cell.amountLabel.textColor = .blue
         }
         else {
             cell.transactionType.text = data?[indexPath.row].type
-            cell.amountLabel.text = "-₹\(data![indexPath.row].amount)"
+            cell.amountLabel.text = negativeRupee + data![indexPath.row].amount
             cell.amountLabel.textColor = .red
         }
         cell.selectionStyle = .none
@@ -192,25 +194,66 @@ extension ViewController {
 // MARK: - Extension ViewController for PopOver View Controller
 extension ViewController: UIPopoverPresentationControllerDelegate {
     
-    func showPopover(_ sender: UIButton, dataArray: [String], label: UILabel) {
+    func showPopover(_ sender: UIButton, dataArray: [String], label: UILabel, popOverView: String) {
         
-        // Create a view controller to display in the popover
-        let contentViewController = PopOverTableViewController(dataArray: dataArray, label: label)
-        contentViewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.size.width , height: UIScreen.main.bounds.size.height / 6.2)
-        
-        // Create the popover presentation controller
-        contentViewController.modalPresentationStyle = .popover
-        if let popoverController = contentViewController.popoverPresentationController {
-            popoverController.delegate = self
-            popoverController.sourceView = sender
-            popoverController.sourceRect =  CGRect(x:CGRectGetMidX(sender.bounds), y: CGRectGetMidY(sender.bounds),width: UIScreen.main.bounds.size.width,height:UIScreen.main.bounds.size.height/4.5 )
-            popoverController.permittedArrowDirections = []
+        if popOverView == "saving"
+        {
+            // Create a view controller to display in the popover
+            let contentViewController = PopOverTableViewController(dataArray: dataArray, label: label)
+            contentViewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.size.width , height: 45)
+            
+            // Create the popover presentation controller
+            contentViewController.modalPresentationStyle = .popover
+            if let popoverController = contentViewController.popoverPresentationController {
+                popoverController.delegate = self
+                popoverController.sourceView = sender
+                popoverController.sourceRect =  CGRect(x: 0, y: 58, width: 1, height: 1)
+                popoverController.permittedArrowDirections = []
+            }
+            
+            // Present the popover
+            present(contentViewController, animated: true, completion: nil)
         }
         
-        // Present the popover
-        present(contentViewController, animated: true, completion: nil)
+        else if popOverView == "type"
+        {
+            // Create a view controller to display in the popover
+            let contentViewController = PopOverTableViewController(dataArray: dataArray, label: label)
+            contentViewController.preferredContentSize = CGSize(width: 190, height: 135)
+            
+            // Create the popover presentation controller
+            contentViewController.modalPresentationStyle = .popover
+            if let popoverController = contentViewController.popoverPresentationController {
+                popoverController.delegate = self
+                popoverController.sourceView = sender
+                popoverController.sourceRect = CGRect(x: 100, y: 100, width: 0, height: 0)
+                popoverController.permittedArrowDirections = []
+            }
+            
+            // Present the popover
+            present(contentViewController, animated: true, completion: nil)
+        }
+
+        else if popOverView == "period"
+        {
+            // Create a view controller to display in the popover
+            let contentViewController = RadioListViewController(dataArray: dataArray, label: label)
+            contentViewController.preferredContentSize = CGSize(width: UIScreen.main.bounds.size.width , height: UIScreen.main.bounds.size.height/2.5)
+            
+            // Create the popover presentation controller
+            contentViewController.modalPresentationStyle = .popover
+            if let popoverController = contentViewController.popoverPresentationController {
+                popoverController.delegate = self
+                popoverController.sourceView = sender
+                popoverController.sourceRect =  CGRect(x: 0, y: 200, width: 0, height: 0)
+                popoverController.permittedArrowDirections = []
+            }
+            
+            // Present the popover
+            present(contentViewController, animated: true, completion: nil)
         
-        
+        }
+
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -220,14 +263,14 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
     
     
     @objc func bankSltBtnTapped(_ sender: UIButton) {
-        showPopover(sender, dataArray: accountDetailsView.selectAccArr, label: accountDetailsView.sltAccTextLabel)
+        showPopover(sender, dataArray: accountDetailsView.selectAccArr, label: accountDetailsView.sltAccTextLabel, popOverView: "saving")
     }
     
     @objc func typeBtnTapped(_ sender: UIButton) {
-        showPopover(sender, dataArray: accountDetailsView.typeTextArr, label: accountDetailsView.typeTextLabel)
+        showPopover(sender, dataArray: accountDetailsView.typeTextArr, label: accountDetailsView.typeTextLabel, popOverView: "type")
     }
     
     @objc func periodBtnTapped(_ sender: UIButton){
-        showPopover(sender, dataArray: accountDetailsView.periodTextArr, label: accountDetailsView.periodTextLabel)
+        showPopover(sender, dataArray: accountDetailsView.periodTextArr, label: accountDetailsView.periodTextLabel, popOverView: "period")
     }
 }
